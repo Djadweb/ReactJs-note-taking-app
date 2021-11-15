@@ -3,10 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@editorjs/editorjs": "^2.22.2",
-    "@editorjs/embed": "^2.4.6",
-    "@editorjs/header": "^2.6.1",
-    "@editorjs/list": "^1.6.2",
+    "@ckeditor/ckeditor5-build-classic": "^31.0.0",
+    "@ckeditor/ckeditor5-react": "^3.0.3",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.1.0",
