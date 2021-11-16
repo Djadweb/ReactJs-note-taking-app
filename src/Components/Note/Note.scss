@@ -17,12 +17,38 @@
             margin: 0 15px 0 5px;
             font-size: 8px;
         }
+
+        .note-title {
+            background-color: transparent;
+            border: none;
+            outline: 0;
+            font-size: 22px;
+            color: #FFF;            
+
+            &::placeholder {
+                color: #FFF;
+                opacity: .8;
+            }
+        }
+
+        .saveBtn {
+            width: 100px;
+            height: 35px;
+            background-color: rgb(14, 133, 212);
+            border: 1px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            color: #FFF;
+            font-weight: bold;
+            right: 10px;            
+            position: absolute;
+            cursor: pointer;
+        }
     }
 
     .note__editor {
         width: 100%; 
-        height: 100vh;
-        
+        height: 100vh;        
         
     }
 }
