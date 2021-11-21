@@ -2,12 +2,12 @@ import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './Preview.scss';
 
-function Preview() {
+function Preview({note}) {
     return (
         <div className="preview">
             <div className="preview__note-info">
-                <p className="title">New note title</p>
-                <p className="header">this is a hea...</p>
+                <p className="title">{note.title}</p>
+                <p className="header">{note.value}</p>
             </div>
             <button className="preview__deleteBtn">
                 <DeleteIcon/>

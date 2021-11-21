@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Preview from '../Preview/Preview';
 //import App from '../../App';
 import './Sidebar.scss';
+import { NotesContext } from '../Context/Context';
 
-function Sidebar({checkNewNote}) {
+
+function Sidebar({checkNewNote}) {        
+    const {notes} = useContext(NotesContext);
+
     const newNoteHandler = () => {
-        checkNewNote('true');
+        checkNewNote('true');        
     }
+    
     return (
         <div className="sidebar">
             <button onClick={() => newNoteHandler()} className="sidebar__new-note">NEW NOTE</button>     
-            <Preview/> 
-            {/* <NewNoteContext.Provider value={newNote}>
-                <App/>
-            </NewNoteContext.Provider>                       */}
+            {notes !== null ? notes.map((note, index) => (
+                <Preview key={index} note={note}/> 
+            )) : "no notes"}            
         </div>
     )
 }

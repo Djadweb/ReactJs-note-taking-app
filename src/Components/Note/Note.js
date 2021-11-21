@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Editor from './Editor';
 import EditIcon from '@mui/icons-material/Edit';
 import './Note.scss';
+import { NotesContext } from '../Context/Context';
 
 function Note() {    
     const [title, setTitle] = useState("");
     const [value, setValue] = useState("");
+    //const [notes, setNotes] = useState(localStorage.notes ? JSON.parse(localStorage.getItem("note")) : []);
+    const {notes, setNotes} = useContext(NotesContext);
 
     const handleTitle = (e) => {        
         setTitle(e.target.value);
@@ -15,27 +18,18 @@ function Note() {
         setValue(value);
     }
 
+    // useEffect(() => {
+    //     localStorage.setItem("notes", JSON.stringify(notes));           
+    // }, [notes])
+
     const saveNote = () => {
         const note = {
             title : title,
             value : value
-        }
-        console.log(note)
-        let notes;
-        console.log(notes)
-        if(localStorage.getItem("notes") === null) {
-            notes = [];
-            console.log(notes)
-        } else {
-            notes = JSON.parse(localStorage.getItem("notes"));        
-            console.log(notes)
-        }
-        console.log(notes)
-        
-        notes.push(note);console.log(notes)
-        localStorage.setItem("notes", JSON.stringify(notes));
-        console.log(JSON.parse(localStorage.getItem("notes")));            
+        }                
+        setNotes([note, ...notes]);                           
     }
+
     return (
         <div className="note">            
             <div className="note__header">
